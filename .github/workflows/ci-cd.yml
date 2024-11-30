@@ -28,7 +28,7 @@ jobs:
 
       # Run tests
       - name: Run tests
-        run: pytest app/tests
+        run: pytest
 
       # Set up Docker
       - name: Set up Docker
