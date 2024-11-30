@@ -26,11 +26,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r app/requirements.txt
 
+      # Start Flask application
+      - name: Start Flask application
+        run: |
+          nohup python app/app.py &
+          sleep 5  # Wait for the server to start
+
       # Run tests
       - name: Run tests
-        run: |
-          python -m pip install pytest
-          pytest
+        run: pytest
 
       # Set up Docker
       - name: Set up Docker
