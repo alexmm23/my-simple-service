@@ -10,5 +10,9 @@ def home():
 def saludo(nombre):
     return jsonify({"message": f"¡Hola {nombre}!"})
 
+@app.route("/about")
+def about():
+    return jsonify({"message": "About Us"})
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
