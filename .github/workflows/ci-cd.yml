@@ -36,6 +36,11 @@ jobs:
       - name: Run tests
         run: pytest
 
+      # Stop Flask application
+      - name: Stop Flask application
+        run: |
+          pkill -f "python app/app.py"
+
       # Set up Docker
       - name: Set up Docker
         uses: docker/setup-buildx-action@v2
