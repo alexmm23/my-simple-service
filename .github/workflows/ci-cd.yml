@@ -1,12 +1,17 @@
-name: CI/CD Pipeline
+name: Test Pipeline
 
 on:
   push:
     branches:
       - main
+      - test-branch
+  pull_request:
+    branches:
+      - main
+      - test-branch
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -40,15 +45,3 @@ jobs:
       - name: Stop Flask application
         run: |
           pkill -f "python app/app.py"
-
-      # Set up Docker
-      - name: Set up Docker
-        uses: docker/setup-buildx-action@v2
-
-      # Build Docker image
-      - name: Build Docker image
-        run: docker build -t my-simple-service:latest .
-
-      # Run container
-      - name: Run Docker container
-        run: docker run -d -p 5000:5000 my-simple-service:latest
