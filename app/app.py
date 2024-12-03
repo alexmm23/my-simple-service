@@ -16,6 +16,12 @@ def about():
 @app.route("/suma/<int:num1>/<int:num2>")
 def suma(num1, num2):  
     return jsonify({"resultado": num1 + num2})
+
+
+
+@app.route("/saludo2")
+def saludo2():  
+    return jsonify({"message": "¡Hola grupo 6P!"})
 #comentario de prueba
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
